@@ -16,10 +16,11 @@ def get_odds():
 
     url = f"https://api.the-odds-api.com/v4/sports/{sport}/odds"
     params = {
-        "apiKey": api_key,
-        "regions": region,
-        "markets": market,
-        "oddsFormat": "american"
+    "apiKey": api_key,
+    "regions": region,
+    "markets": market,
+    "oddsFormat": "american",
+    "bookmakers": "fanduel"  # Only pull FanDuel odds
     }
     r = requests.get(url, params=params, timeout=15)
     return jsonify(r.json()), r.status_code
